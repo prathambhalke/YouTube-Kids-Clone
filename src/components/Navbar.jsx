@@ -20,14 +20,14 @@ const Navbar = () => (
   >
     <Link to="/" style={{ display: "flex", alignItems: "center" }}>
       <span color="red">
-        <img src={logo} alt="logo" height={65} /> Youtube Kids
+        <img src={logo} alt="logo" height={55} /> Youtube Kids
       </span>
     </Link>
     <SearchBar />
     <div
       style={{ border: "1.5px solid red", borderRadius: "50%", padding: "5px" }}
     >
-      <img src={kidProfile} alt="kidProfile" height={50} />
+      <img src={kidProfile} alt="kidProfile" height={40} />
     </div>
   </Stack>
 );
