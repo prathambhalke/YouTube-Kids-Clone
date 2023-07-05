@@ -1,5 +1,5 @@
 # YouTube-Kids-Clone
-YouTube Clone is an efficacious video-sharing solution that aids you in launching your video streaming software that has the power to rival YouTube itself. The app allows admin to add an unlimited collection of videos to keep the users hooked to the app.
+
 Welcome to the YouTube Kids Clone project! This project aims to create a simplified version of YouTube Kids, a child-friendly video streaming application. The purpose of this repository is to provide a safe and enjoyable video streaming experience for young users.
 
 Table of Contents
