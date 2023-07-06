@@ -24,7 +24,11 @@ export default function Signup() {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
+  const toggleShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
   const onSubmit = async (e) => {
     e.preventDefault();
 
@@ -39,6 +43,7 @@ export default function Signup() {
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
+        alert(errorCode, errorMessage);
         console.log(errorCode, errorMessage);
         // ..
       });
@@ -100,10 +105,20 @@ export default function Signup() {
                 fullWidth
                 name="password"
                 label="Password"
-                type="password"
+                type={!showPassword ? "password" : "text"}
                 id="password"
                 onChange={(e) => setPassword(e.target.value)}
                 autoComplete="current-password"
+              />
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    value={showPassword}
+                    onChange={toggleShowPassword}
+                    color="primary"
+                  />
+                }
+                label="Show Password"
               />
               <Button
                 type="submit"
