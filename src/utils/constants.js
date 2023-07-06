@@ -13,10 +13,11 @@ import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
 import DeveloperModeIcon from "@mui/icons-material/DeveloperMode";
 import Logo from "../utils/logo1.png";
 import kid from "./kid.png";
+import loginShichan from "./shinc.jpg";
 // export const logo = 'https://i.ibb.co/s9Qys2j/logo.png';
 export const logo = Logo;
 export const kidProfile = kid;
-
+export const loginShin = loginShichan;
 export const categories = [
   { name: "Kids", icon: <HomeIcon /> },
   { name: "Kids Music", icon: <CodeIcon /> },

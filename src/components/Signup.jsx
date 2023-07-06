@@ -14,30 +14,33 @@ import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "./../utils/firebase";
 
 const defaultTheme = createTheme();
 
-export default function LoginPage() {
+export default function Signup() {
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const onLogin = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
-    signInWithEmailAndPassword(auth, email, password)
+
+    await createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        navigate("/home");
         console.log(user);
+        navigate("/login");
+        // ...
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
         console.log(errorCode, errorMessage);
+        // ..
       });
   };
 
@@ -53,7 +56,7 @@ export default function LoginPage() {
           md={7}
           sx={{
             backgroundImage:
-              "url(https://i.pinimg.com/736x/2b/f6/22/2bf622a1228054df5223a2d061af23cf.jpg)",
+              "url(https://dpemoji.com/wp-content/uploads/2023/02/shinchan-dp-81.png)",
             backgroundRepeat: "no-repeat",
             backgroundColor: (t) =>
               t.palette.mode === "light"
@@ -77,9 +80,9 @@ export default function LoginPage() {
               <LockOutlinedIcon />
             </Avatar>
             <Typography component="h1" variant="h5">
-              Sign in
+              Sign up
             </Typography>
-            <Box component="form" noValidate onSubmit={onLogin} sx={{ mt: 1 }}>
+            <Box component="form" noValidate onSubmit={onSubmit} sx={{ mt: 1 }}>
               <TextField
                 margin="normal"
                 required
@@ -102,27 +105,18 @@ export default function LoginPage() {
                 onChange={(e) => setPassword(e.target.value)}
                 autoComplete="current-password"
               />
-              <FormControlLabel
-                control={<Checkbox value="remember" color="primary" />}
-                label="Remember me"
-              />
               <Button
                 type="submit"
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
               >
-                Sign In
+                Sign up
               </Button>
               <Grid container>
-                <Grid item xs>
-                  <Link href="#" variant="body2">
-                    Forgot password?
-                  </Link>
-                </Grid>
                 <Grid item>
-                  <NavLink variant="body2" to="/signup">
-                    {"Don't have an account? Sign Up"}
+                  <NavLink variant="body2" to="/login">
+                    {"Already have an account? Sign In"}
                   </NavLink>
                 </Grid>
               </Grid>

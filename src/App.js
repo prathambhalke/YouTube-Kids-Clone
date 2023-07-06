@@ -8,6 +8,7 @@ import {
   Navbar,
   Feed,
   LoginPage,
+  Signup,
 } from "./components";
 
 const App = () => (
@@ -15,7 +16,7 @@ const App = () => (
     <Box sx={{ backgroundColor: "#000" }}>
       <Navbar />
       <Routes>
-        {/* <Route path="/signup" element={<Signup />} /> */}
+        <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<LoginPage />} />
         <Route exact path="/" element={<Feed />} />
         <Route path="/video/:id" element={<VideoDetail />} />
