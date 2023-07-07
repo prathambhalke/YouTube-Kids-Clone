@@ -9,6 +9,7 @@ import {
   Feed,
   LoginPage,
   Signup,
+  UserProfile,
 } from "./components";
 
 const App = () => (
@@ -18,6 +19,7 @@ const App = () => (
       <Routes>
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/userprofile" element={<UserProfile />} />
         <Route exact path="/" element={<Feed />} />
         <Route path="/video/:id" element={<VideoDetail />} />
         <Route path="/channel/:id" element={<ChannelDetail />} />

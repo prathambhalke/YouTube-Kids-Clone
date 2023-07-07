@@ -11,3 +11,4 @@ export { default as Videos } from "./Videos";
 export { default as Sidebar } from "./Sidebar";
 export { default as LoginPage } from "./LoginPage";
 export { default as Signup } from "./Signup";
+export { default as UserProfile } from "./UserProfile";

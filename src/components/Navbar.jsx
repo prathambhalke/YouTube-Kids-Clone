@@ -24,11 +24,19 @@ const Navbar = () => (
       </span>
     </Link>
     <SearchBar />
-    <div
+    {/* <div
       style={{ border: "1.5px solid red", borderRadius: "50%", padding: "5px" }}
     >
       <img src={kidProfile} alt="kidProfile" height={40} />
-    </div>
+    </div> */}
+    <Link
+      to="/userprofile"
+      style={{ border: "1.5px solid red", borderRadius: "50%", padding: "5px" }}
+    >
+      <span color="red">
+        <img src={kidProfile} alt="kidProfile" height={40} />
+      </span>
+    </Link>
   </Stack>
 );
 
