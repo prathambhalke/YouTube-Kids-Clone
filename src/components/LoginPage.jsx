@@ -47,13 +47,25 @@ export default function LoginPage() {
       });
   };
 
+  const guestLogin = "guest@gmail.com";
+  const guestPassword = "guestPassword@gmail.com";
+
+  const handleGuestLogin = async (event) => {
+    event.preventDefault();
+    // alert("clicked");
+    try {
+      await signInWithEmailAndPassword(auth, guestLogin, guestPassword);
+      navigate("/");
+    } catch (error) {}
+  };
+
   return (
     <ThemeProvider theme={defaultTheme}>
       <Grid container component="main" sx={{ height: "80vh" }}>
         <CssBaseline />
         <Grid
           item
-          height="85vh"
+          height="88vh"
           xs={false}
           sm={4}
           md={7}
@@ -69,7 +81,7 @@ export default function LoginPage() {
             backgroundPosition: "center",
           }}
         />
-        <Grid height="85vh" xs={12} sm={8} md={5} component={Paper}>
+        <Grid height="88vh" xs={12} sm={8} md={5} component={Paper}>
           <Box
             sx={{
               my: 8,
@@ -118,6 +130,13 @@ export default function LoginPage() {
                 }
                 label="Show Password"
               />
+              <Button
+                fullWidth
+                variant="contained"
+                onClick={(event) => handleGuestLogin(event)}
+              >
+                Guest Login
+              </Button>
               <Button
                 type="submit"
                 fullWidth
