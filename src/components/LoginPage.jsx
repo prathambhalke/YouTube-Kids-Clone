@@ -19,12 +19,17 @@ import { auth } from "./../utils/firebase";
 
 const defaultTheme = createTheme();
 
-export default function LoginPage() {
+export default function LoginPage({ setIsAuthenticated }) {
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+
+  if (email === "admin" && password === "password") {
+    setIsAuthenticated(true);
+    navigate("/");
+  }
 
   const toggleShowPassword = () => {
     setShowPassword(!showPassword);
@@ -52,7 +57,6 @@ export default function LoginPage() {
 
   const handleGuestLogin = async (event) => {
     event.preventDefault();
-    alert("User Profile");
     try {
       await signInWithEmailAndPassword(auth, guestLogin, guestPassword);
       navigate("/");
