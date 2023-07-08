@@ -1,5 +1,8 @@
 import React from "react";
-import { Avatar, Typography, Box, Divider, Grid } from "@mui/material";
+import { Avatar, Typography, Box, Divider, Grid, Button } from "@mui/material";
+import { signOut } from "firebase/auth";
+import { auth } from "../utils/firebase";
+import { useNavigate } from "react-router-dom";
 
 const styles = {
   root: {
@@ -19,6 +22,18 @@ const styles = {
 };
 
 const UserProfile = () => {
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      alert("signedOut successfully");
+      navigate("/login");
+    } catch {
+      console.log("error");
+    }
+  };
+
   return (
     <Grid container justifyContent="center">
       <Grid item xs={12} sm={8}>
@@ -35,6 +50,9 @@ const UserProfile = () => {
             <Typography variant="body2" color="red">
               YouTube Kids User
             </Typography>
+            <Button variant="contained" color="primary" onClick={handleLogout}>
+              Logout
+            </Button>
           </Box>
           <Divider orientation="vertical" flexItem />
           <Box>

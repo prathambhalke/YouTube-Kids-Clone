@@ -52,7 +52,7 @@ export default function LoginPage() {
 
   const handleGuestLogin = async (event) => {
     event.preventDefault();
-    // alert("clicked");
+    alert("User Profile");
     try {
       await signInWithEmailAndPassword(auth, guestLogin, guestPassword);
       navigate("/");
