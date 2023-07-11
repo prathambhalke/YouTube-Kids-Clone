@@ -21,6 +21,7 @@ export const AuthProvider = ({ children }) => {
         // Signed in
         const user = userCredential.user;
         navigate("/");
+        setIsAuthenticated(true);
         console.log(user);
       })
       .catch((error) => {
@@ -29,7 +30,6 @@ export const AuthProvider = ({ children }) => {
         alert(errorCode, errorMessage);
         console.log(errorCode, errorMessage);
       });
-    setIsAuthenticated(true);
   };
 
   const logout = async () => {
@@ -53,7 +53,9 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, login, logout, user }}>
+    <AuthContext.Provider
+      value={{ isAuthenticated, setIsAuthenticated, login, logout, user }}
+    >
       {children}
     </AuthContext.Provider>
   );

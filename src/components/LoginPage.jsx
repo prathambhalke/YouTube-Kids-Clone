@@ -26,7 +26,7 @@ export default function LoginPage() {
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
-  const { login } = useContext(AuthContext);
+  const { login, setIsAuthenticated } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
@@ -46,8 +46,11 @@ export default function LoginPage() {
     event.preventDefault();
     try {
       await signInWithEmailAndPassword(auth, guestLogin, guestPassword);
+      setIsAuthenticated(true);
       navigate("/");
-    } catch (error) {}
+    } catch (error) {
+      console.log("error guest", error);
+    }
   };
 
   return (
