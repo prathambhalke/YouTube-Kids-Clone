@@ -18,17 +18,23 @@ const Categories = ({ selectedCategory, setSelectedCategory }) => (
         onClick={() => setSelectedCategory(category.name)}
         style={{
           background: category.name === selectedCategory && "#FC1503",
-          color: "white",
+          color: "blue",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
+          alignItems: "center",
+          // color: "white",
+          fontStyle: "bold",
+          margin: "12px",
         }}
         key={category.name}
       >
         <span
           style={{
             color: category.name === selectedCategory ? "white" : "red",
-            marginRight: "25px",
           }}
         >
-          {category.icon}
+          <img src={category.icon} alt={category.icon} />
         </span>
         <span
           style={{ opacity: category.name === selectedCategory ? "1" : "0.8" }}

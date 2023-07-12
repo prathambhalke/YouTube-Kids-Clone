@@ -8,7 +8,6 @@ import {
   useColorScheme,
 } from "@mui/material";
 import { AuthContext } from "../utils/AuthContext";
-import { backgroundImg } from "./../utils/constants";
 
 const styles = {
   root: {
@@ -42,15 +41,7 @@ const UserProfile = () => {
   };
 
   return (
-    <Grid
-      container
-      justifyContent="center"
-      style={{
-        background: `url(${backgroundImg})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    >
+    <Grid container justifyContent="center" style={{ background: "#000" }}>
       <Typography variant="h6" style={styles.username}>
         {user ? (
           <span>
@@ -98,7 +89,6 @@ const UserProfile = () => {
               </Box>
             </>
           )}
-          <Divider orientation="vertical" flexItem />
           <Box>
             {/* Additional user information */}
             {/* ... */}
