@@ -15,16 +15,26 @@ import Logo from "../utils/logo1.png";
 import kid from "./kid.png";
 import loginShichan from "./shinc.jpg";
 import background from "./background.jpg";
+import popcorn from "./popcorn.png";
+import music from "./music1.png";
+import bulb from "./bulb.png";
+import funny from "./funny.png";
+
 // export const logo = 'https://i.ibb.co/s9Qys2j/logo.png';
 export const logo = Logo;
 export const kidProfile = kid;
 export const loginShin = loginShichan;
 export const backgroundImg = background;
+// export const popcornImg = popcorn;
+// export const musicImg = music;
+// export const bulbImg = bulb;
+// export const funnyImg = funny;
+
 export const categories = [
-  { name: "Kids", icon: <HomeIcon /> },
-  { name: "Kids Music", icon: <CodeIcon /> },
-  { name: "Kids Learing", icon: <CodeIcon /> },
-  { name: "Kids Explore", icon: <CodeIcon /> },
+  { name: "Kids", icon: popcorn },
+  { name: "Kids Music", icon: music },
+  { name: "Kids Learing", icon: bulb },
+  { name: "Kids Explore", icon: funny },
   // { name: "NextJS", icon: <CodeIcon /> },
   // { name: "Music", icon: <MusicNoteIcon /> },
   // { name: "Education", icon: <SchoolIcon /> },
