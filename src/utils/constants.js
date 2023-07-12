@@ -14,10 +14,12 @@ import DeveloperModeIcon from "@mui/icons-material/DeveloperMode";
 import Logo from "../utils/logo1.png";
 import kid from "./kid.png";
 import loginShichan from "./shinc.jpg";
+import background from "./background.jpg";
 // export const logo = 'https://i.ibb.co/s9Qys2j/logo.png';
 export const logo = Logo;
 export const kidProfile = kid;
 export const loginShin = loginShichan;
+export const backgroundImg = background;
 export const categories = [
   { name: "Kids", icon: <HomeIcon /> },
   { name: "Kids Music", icon: <CodeIcon /> },
@@ -46,4 +48,3 @@ export const demoVideoTitle =
   "Build and Deploy 5 JavaScript & React API Projects in 10 Hours - Full Course | RapidAPI";
 export const demoProfilePicture =
   "http://dergipark.org.tr/assets/app/images/buddy_sample.png";
-  

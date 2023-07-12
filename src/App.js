@@ -13,11 +13,21 @@ import {
 } from "./components";
 import { AuthProvider } from "./utils/AuthContext";
 import ProtectedRoute from "./utils/ProtectedRoute";
+import { backgroundImg } from "./utils/constants";
 
 const App = () => (
   <BrowserRouter>
     <AuthProvider>
-      <Box sx={{ backgroundColor: "#000" }}>
+      <Box
+        sx={{
+          background: `url(${backgroundImg})`,
+          height: "100%",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "repeat-y",
+          backgroundAttachment: "fixed",
+        }}
+      >
         <Navbar />
         <Routes>
           <Route path="/signup" element={<Signup />} />

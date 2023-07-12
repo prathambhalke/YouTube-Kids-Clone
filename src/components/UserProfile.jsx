@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import {
-  Avatar,
   Typography,
   Box,
   Divider,
@@ -8,10 +7,8 @@ import {
   Button,
   useColorScheme,
 } from "@mui/material";
-import { signOut } from "firebase/auth";
-import { auth } from "../utils/firebase";
-import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../utils/AuthContext";
+import { backgroundImg } from "./../utils/constants";
 
 const styles = {
   root: {
@@ -19,7 +16,7 @@ const styles = {
     alignItems: "center",
     padding: "16px",
     borderBottom: "1px solid rgba(0, 0, 0, 0.12)",
-    height: "80vh",
+    height: "85vh",
   },
   avatar: {
     marginRight: "16px",
@@ -45,7 +42,15 @@ const UserProfile = () => {
   };
 
   return (
-    <Grid container justifyContent="center">
+    <Grid
+      container
+      justifyContent="center"
+      style={{
+        background: `url(${backgroundImg})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
       <Typography variant="h6" style={styles.username}>
         {user ? (
           <span>
