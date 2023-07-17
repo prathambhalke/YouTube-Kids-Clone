@@ -14,6 +14,7 @@ import {
 import { AuthProvider } from "./utils/AuthContext";
 import ProtectedRoute from "./utils/ProtectedRoute";
 import { backgroundImg } from "./utils/constants";
+import LikedVideos from "./components/LikedVideos";
 
 const App = () => {
   return (
@@ -33,6 +34,8 @@ const App = () => {
             <Route path="/video/:id" element={<VideoDetail />} />
             <Route path="/channel/:id" element={<ChannelDetail />} />
             <Route path="/search/:searchTerm" element={<SearchFeed />} />
+            <Route path="/search/:searchTerm" element={<SearchFeed />} />
+            <Route path="/LikedVideos" element={<LikedVideos />} />
           </Routes>
         </Box>
       </AuthProvider>
