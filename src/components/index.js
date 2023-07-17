@@ -1,3 +1,5 @@
+export { default as WatchLater } from "./WatchLater";
+export { default as LikedVideos } from "./LikedVideos";
 export { default as ChannelCard } from "./ChannelCard";
 export { default as VideoCard } from "./VideoCard";
 export { default as ChannelDetail } from "./ChannelDetail";
