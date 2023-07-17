@@ -15,6 +15,7 @@ import { AuthProvider } from "./utils/AuthContext";
 import ProtectedRoute from "./utils/ProtectedRoute";
 import { backgroundImg } from "./utils/constants";
 import LikedVideos from "./components/LikedVideos";
+import { WatchLater } from "@mui/icons-material";
 
 const App = () => {
   return (
@@ -36,6 +37,7 @@ const App = () => {
             <Route path="/search/:searchTerm" element={<SearchFeed />} />
             <Route path="/search/:searchTerm" element={<SearchFeed />} />
             <Route path="/LikedVideos" element={<LikedVideos />} />
+            <Route path="/WatchLater" element={<WatchLater />} />
           </Routes>
         </Box>
       </AuthProvider>
