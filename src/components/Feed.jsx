@@ -1,8 +1,23 @@
 import React, { useEffect, useState } from "react";
-import { Box, Stack, Typography } from "@mui/material";
+import {
+  Box,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+  Stack,
+  Typography,
+} from "@mui/material";
 
 import { fetchFromAPI } from "../utils/fetchFromAPI";
 import { Videos, Sidebar } from "./";
+import {
+  HistoryOutlined,
+  PlaylistPlayOutlined,
+  ThumbUpAltOutlined,
+  VisibilityOutlined,
+  WatchLaterOutlined,
+} from "@mui/icons-material";
 
 const Feed = () => {
   const [selectedCategory, setSelectedCategory] = useState("Kids");
@@ -19,44 +34,111 @@ const Feed = () => {
   return (
     <Stack
       display="flex"
-      flexDirection="column"
+      flexDirection="row"
       // justifyContent="center"
-      sx={{ flexDirection: "column" }}
+      sx={{ flexDirection: "row" }}
     >
       <Box
-        display="flex"
-        justifyContent="center"
-        sx={{
-          height: { sx: "auto", md: "100%" },
-          borderRight: "1px solid #3d3d3d",
-          px: { sx: 0, md: 2 },
-        }}
-      >
-        <Sidebar
-          selectedCategory={selectedCategory}
-          setSelectedCategory={setSelectedCategory}
-        />
-      </Box>
-
-      <Box
+        width="15%" // Adjust the width as needed
+        borderRight="1px solid #3d3d3d"
         p={2}
+        sx={{ backgroundColor: "#000", color:"blue" }} // Set the background color
+      >
+        <List component="nav">
+          <ListItem
+            button
+            selected={selectedCategory === "Watch Later"}
+            onClick={() => setSelectedCategory("Watch Later")}
+          >
+            <ListItemIcon>
+              <WatchLaterOutlined />
+            </ListItemIcon>
+            <ListItemText primary="Watch Later" />
+          </ListItem>
+          <ListItem
+            button
+            selected={selectedCategory === "Liked Videos"}
+            onClick={() => setSelectedCategory("Liked Videos")}
+          >
+            <ListItemIcon>
+              <ThumbUpAltOutlined />
+            </ListItemIcon>
+            <ListItemText primary="Liked Videos" />
+          </ListItem>
+          <ListItem
+            button
+            selected={selectedCategory === "Playlists"}
+            onClick={() => setSelectedCategory("Playlists")}
+          >
+            <ListItemIcon>
+              <PlaylistPlayOutlined />
+            </ListItemIcon>
+            <ListItemText primary="Playlists" />
+          </ListItem>
+          <ListItem
+            button
+            selected={selectedCategory === "Most Viewed"}
+            onClick={() => setSelectedCategory("Most Viewed")}
+          >
+            <ListItemIcon>
+              <VisibilityOutlined />
+            </ListItemIcon>
+            <ListItemText primary="Most Viewed" />
+          </ListItem>
+          <ListItem
+            button
+            selected={selectedCategory === "History"}
+            onClick={() => setSelectedCategory("History")}
+          >
+            <ListItemIcon>
+              <HistoryOutlined />
+            </ListItemIcon>
+            <ListItemText primary="History" />
+          </ListItem>
+        </List>
+      </Box>
+      <Stack
         display="flex"
         flexDirection="column"
         justifyContent="center"
-        alignItems="center"
-        sx={{ overflowY: "auto", height: "90vh", flex: 2 }}
+        width="100%"
+        sx={{ flexDirection: "column" }}
       >
-        <Typography
-          variant="h4"
-          fontWeight="bold"
-          mb={2}
-          sx={{ color: "blue" }}
+        <Box
+          display="flex"
+          justifyContent="center"
+          sx={{
+            height: { sx: "auto", md: "auto" },
+            borderRight: "1px solid #3d3d3d",
+            px: { sx: 0, md: 2 },
+          }}
         >
-          {selectedCategory} <span style={{ color: "#FC1503" }}>videos</span>
-        </Typography>
+          <Sidebar
+            selectedCategory={selectedCategory}
+            setSelectedCategory={setSelectedCategory}
+          />
+        </Box>
 
-        <Videos videos={videos} />
-      </Box>
+        <Box
+          p={2}
+          display="flex"
+          flexDirection="column"
+          justifyContent="center"
+          alignItems="center"
+          sx={{ overflowY: "auto", height: "90vh", flex: 2 }}
+        >
+          <Typography
+            variant="h4"
+            fontWeight="bold"
+            mb={2}
+            sx={{ color: "blue" }}
+          >
+            {selectedCategory} <span style={{ color: "#FC1503" }}>videos</span>
+          </Typography>
+
+          <Videos videos={videos} />
+        </Box>
+      </Stack>
     </Stack>
   );
 };
