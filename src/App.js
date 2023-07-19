@@ -12,6 +12,7 @@ import {
   UserProfile,
   WatchLater,
   LikedVideos,
+  HistoryPage,
 } from "./components";
 import { AuthProvider } from "./utils/AuthContext";
 import ProtectedRoute from "./utils/ProtectedRoute";
@@ -35,8 +36,9 @@ const App = () => {
             <Route path="/channel/:id" element={<ChannelDetail />} />
             <Route path="/search/:searchTerm" element={<SearchFeed />} />
             <Route path="/search/:searchTerm" element={<SearchFeed />} />
-            <Route path="/LikedVideos" element={<LikedVideos />} />
-            <Route path="/WatchLater" element={<WatchLater />} />
+            <Route path="/likedvideos" element={<LikedVideos />} />
+            <Route path="/watchlater" element={<WatchLater />} />
+            <Route path="/historypage" element={<HistoryPage />} />
           </Routes>
         </Box>
       </AuthProvider>

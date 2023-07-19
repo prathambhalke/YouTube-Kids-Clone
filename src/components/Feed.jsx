@@ -18,11 +18,13 @@ import {
   VisibilityOutlined,
   WatchLaterOutlined,
 } from "@mui/icons-material";
+import { useNavigate } from "react-router-dom";
 
 const Feed = () => {
   const [selectedCategory, setSelectedCategory] = useState("Kids");
   const [videos, setVideos] = useState(null);
 
+  const navigate = useNavigate();
   useEffect(() => {
     setVideos(null);
 
@@ -42,13 +44,13 @@ const Feed = () => {
         width="15%" // Adjust the width as needed
         borderRight="1px solid #3d3d3d"
         p={2}
-        sx={{ backgroundColor: "#000", color:"blue" }} // Set the background color
+        sx={{ backgroundColor: "#000", color: "blue" }} // Set the background color
       >
         <List component="nav">
           <ListItem
             button
             selected={selectedCategory === "Watch Later"}
-            onClick={() => setSelectedCategory("Watch Later")}
+            onClick={() => navigate("/watchlater")}
           >
             <ListItemIcon>
               <WatchLaterOutlined />
@@ -58,7 +60,7 @@ const Feed = () => {
           <ListItem
             button
             selected={selectedCategory === "Liked Videos"}
-            onClick={() => setSelectedCategory("Liked Videos")}
+            onClick={() => navigate("/likedvideos")}
           >
             <ListItemIcon>
               <ThumbUpAltOutlined />
@@ -68,7 +70,7 @@ const Feed = () => {
           <ListItem
             button
             selected={selectedCategory === "Playlists"}
-            onClick={() => setSelectedCategory("Playlists")}
+            onClick={() => navigate("/")}
           >
             <ListItemIcon>
               <PlaylistPlayOutlined />
@@ -78,7 +80,7 @@ const Feed = () => {
           <ListItem
             button
             selected={selectedCategory === "Most Viewed"}
-            onClick={() => setSelectedCategory("Most Viewed")}
+            onClick={() => navigate("/")}
           >
             <ListItemIcon>
               <VisibilityOutlined />
@@ -88,7 +90,7 @@ const Feed = () => {
           <ListItem
             button
             selected={selectedCategory === "History"}
-            onClick={() => setSelectedCategory("History")}
+            onClick={() => navigate("/historypage")}
           >
             <ListItemIcon>
               <HistoryOutlined />

@@ -1,11 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  num: 0,
-};
+  watchLater: [],
+}; 
 
-export const counterSlice = createSlice({
-  name: "counterSlice",
+export const watchLaterSlice = createSlice({
+  name: "watchLaterSlice",
   initialState,
   reducers: {
     increment: (state) => {
@@ -17,6 +17,6 @@ export const counterSlice = createSlice({
   },
 });
 
-export const { increment, decrement } = counterSlice.actions;
+export const { increment, decrement } = watchLaterSlice.actions;
 
-export default counterSlice.reducer;
+export default watchLaterSlice.reducer;

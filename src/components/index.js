@@ -1,4 +1,3 @@
-export { default as WatchLater } from "./WatchLater";
 export { default as LikedVideos } from "./LikedVideos";
 export { default as ChannelCard } from "./ChannelCard";
 export { default as VideoCard } from "./VideoCard";
@@ -14,3 +13,5 @@ export { default as Sidebar } from "./Sidebar";
 export { default as LoginPage } from "./LoginPage";
 export { default as Signup } from "./Signup";
 export { default as UserProfile } from "./UserProfile";
+export { default as HistoryPage } from "./HistoryPage";
+export { default as WatchLater } from "./WatchLater";

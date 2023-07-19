@@ -1,4 +1,4 @@
 import { combineReducers } from "@reduxjs/toolkit";
-import { counterSlice } from "./../Features/counterSlice";
+import { watchLaterSlice } from "./../Features/watchLaterSlice";
 
-export const rootReducer = combineReducers(counterSlice);
+export const rootReducer = combineReducers(watchLaterSlice);
