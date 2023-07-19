@@ -1,6 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Typography, Card, CardContent, CardMedia } from "@mui/material";
+import {
+  Typography,
+  Card,
+  CardContent,
+  CardMedia,
+  Button,
+  IconButton,
+  Tooltip,
+} from "@mui/material";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
 import {
@@ -10,6 +18,7 @@ import {
   demoChannelUrl,
   demoChannelTitle,
 } from "../utils/constants";
+import { ThumbUp, WatchLater } from "@mui/icons-material";
 
 const VideoCard = ({
   video: {
@@ -32,7 +41,9 @@ const VideoCard = ({
         sx={{ width: { xs: "100%", sm: "358px" }, height: 180 }}
       />
     </Link>
-    <CardContent sx={{ backgroundColor: "#1E1E1E", height: "66px" }}>
+    <CardContent
+      sx={{ display: "grid", backgroundColor: "#1E1E1E", height: "6rem" }}
+    >
       <Link to={videoId ? `/video/${videoId}` : demoVideoUrl}>
         <Typography variant="subtitle1" fontWeight="bold" color="#FFF">
           {snippet?.title.slice(0, 60) || demoVideoTitle.slice(0, 60)}
@@ -50,6 +61,18 @@ const VideoCard = ({
           />
         </Typography>
       </Link>
+      <div style={{ display: "flex" }}>
+        <Tooltip title="like video">
+          <IconButton>
+            <ThumbUp style={{ color: "red" }} />
+          </IconButton>
+        </Tooltip>
+        <Tooltip title="watch later">
+          <IconButton>
+            <WatchLater />
+          </IconButton>
+        </Tooltip>
+      </div>
     </CardContent>
   </Card>
 );
