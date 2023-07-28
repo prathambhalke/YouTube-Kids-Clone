@@ -1,11 +1,9 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import {
   Typography,
   Card,
   CardContent,
   CardMedia,
-  Button,
   IconButton,
   Tooltip,
 } from "@mui/material";
@@ -18,22 +16,18 @@ import {
   demoChannelUrl,
   demoChannelTitle,
 } from "../utils/constants";
-import { ThumbUp, WatchLater } from "@mui/icons-material";
-import { useDispatch } from "react-redux";
-import { watchLaterVideos } from "../Features/watchLaterSlice";
+import { RemoveFromQueue, ThumbUp, WatchLater } from "@mui/icons-material";
+import { useDispatch, useSelector } from "react-redux";
+import { removeWatchLaterVideos, watchLaterVideos } from "../Features/watchLaterSlice";
 
 const VideoCard = ({ video }) => {
+  const watchLaterVideosData = useSelector((state) => state.reducer.watchLater);
+  const dispatch = useDispatch();
+  console.log("videoCard", watchLaterVideosData);
   const {
     id: { videoId },
     snippet,
   } = video;
-  // let videoId = video.video.id.videoId;
-  // let snippet = video.video.snippet.channelId;
-  // console.log("videoId", videoId);
-  // console.log("snippet", snippet);
-  // console.log("video", video);
-
-  const dispatch = useDispatch();
   return (
     <Card
       className="card"
@@ -78,15 +72,27 @@ const VideoCard = ({ video }) => {
               <ThumbUp style={{ color: "red" }} />
             </IconButton>
           </Tooltip>
-          <Tooltip title="watch later">
-            <IconButton
-              onClick={() => {
-                dispatch(watchLaterVideos(video));
-              }}
-            >
-              <WatchLater />
-            </IconButton>
-          </Tooltip>
+          {watchLaterVideosData.includes(video) ? (
+            <Tooltip title="Remove from watch later">
+              <IconButton
+                onClick={() => {
+                  dispatch(removeWatchLaterVideos(video));
+                }}
+              >
+                <RemoveFromQueue />
+              </IconButton>
+            </Tooltip>
+          ) : (
+            <Tooltip title="watch later">
+              <IconButton
+                onClick={() => {
+                  dispatch(watchLaterVideos(video));
+                }}
+              >
+                <WatchLater />
+              </IconButton>
+            </Tooltip>
+          )}
         </div>
       </CardContent>
     </Card>
