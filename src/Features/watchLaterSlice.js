@@ -3,17 +3,16 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   watchLater: [],
 };
-
 export const watchLaterSlice = createSlice({
   name: "watchLaterSlice",
   initialState,
   reducers: {
     watchLaterVideos: (state, action) => {
-      state.watchLater.push(action.payload.data);
+      state.watchLater.push(action.payload);
     },
   },
 });
 
-export const { increment, decrement } = watchLaterSlice.actions;
+export const { watchLaterVideos } = watchLaterSlice.actions;
 
 export default watchLaterSlice.reducer;
