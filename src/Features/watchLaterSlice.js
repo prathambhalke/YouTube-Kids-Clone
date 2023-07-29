@@ -7,7 +7,7 @@ export const watchLaterSlice = createSlice({
   name: "watchLaterSlice",
   initialState,
   reducers: {
-    watchLaterVideos: (state, action) => {
+    addWatchLaterVideos: (state, action) => {
       state.watchLater.push(action.payload);
     },
     removeWatchLaterVideos: (state, action) => {
@@ -19,7 +19,7 @@ export const watchLaterSlice = createSlice({
   },
 });
 
-export const { watchLaterVideos, removeWatchLaterVideos } =
+export const { addWatchLaterVideos, removeWatchLaterVideos } =
   watchLaterSlice.actions;
 
 export default watchLaterSlice.reducer;

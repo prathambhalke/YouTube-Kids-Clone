@@ -18,7 +18,7 @@ import {
 } from "../utils/constants";
 import { RemoveFromQueue, ThumbUp, WatchLater } from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
-import { removeWatchLaterVideos, watchLaterVideos } from "../Features/watchLaterSlice";
+import { addWatchLaterVideos, removeWatchLaterVideos } from "../Features/watchLaterSlice";
 
 const VideoCard = ({ video }) => {
   const watchLaterVideosData = useSelector((state) => state.reducer.watchLater);
@@ -86,7 +86,7 @@ const VideoCard = ({ video }) => {
             <Tooltip title="watch later">
               <IconButton
                 onClick={() => {
-                  dispatch(watchLaterVideos(video));
+                  dispatch(addWatchLaterVideos(video));
                 }}
               >
                 <WatchLater />

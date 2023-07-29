@@ -1,11 +1,10 @@
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import React from "react";
 import { useSelector } from "react-redux";
 import { Videos } from "./";
 
 const WatchLater = () => {
   const watchLaterVideos = useSelector((state) => state.reducer.watchLater);
-  console.log(watchLaterVideos);
   return (
     <Box
       p={2}
@@ -25,11 +24,6 @@ const WatchLater = () => {
       >
         <span style={{ color: "#FC1503" }}>WatchLater</span> videos
       </Typography>
-      {/* <Box>
-        {watchLaterVideos.map((item) => (
-          <h2 style={{ color: "white" }}>{item.id.videoId}</h2>
-        ))}
-      </Box> */}
       <Box display="flex">{<Videos videos={watchLaterVideos} />}</Box>
     </Box>
   );
