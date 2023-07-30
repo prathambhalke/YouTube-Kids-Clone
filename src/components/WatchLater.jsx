@@ -26,7 +26,11 @@ const WatchLater = () => {
       >
         <span style={{ color: "#FC1503" }}>WatchLater</span> videos
       </Typography>
-      <Box display="flex">{<Videos videos={watchLaterVideosData} />}</Box>
+      <Box display="flex">
+        {watchLaterVideosData.length > 0 && (
+          <Videos videos={watchLaterVideosData} />
+        )}
+      </Box>
     </Box>
   );
 };

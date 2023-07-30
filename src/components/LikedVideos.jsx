@@ -27,7 +27,9 @@ const LikedVideos = () => {
       >
         <span style={{ color: "#FC1503" }}>Liked</span> videos
       </Typography>
-      <Box display="flex">{<Videos videos={likedVideosData} />}</Box>
+      <Box display="flex">
+        {likedVideosData.length > 0 && <Videos videos={likedVideosData} />}
+      </Box>
     </Box>
   );
 };
