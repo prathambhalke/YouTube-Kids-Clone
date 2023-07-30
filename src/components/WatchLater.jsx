@@ -4,7 +4,9 @@ import { useSelector } from "react-redux";
 import { Videos } from "./";
 
 const WatchLater = () => {
-  const watchLaterVideos = useSelector((state) => state.reducer.watchLater);
+  const watchLaterVideosData = useSelector(
+    (state) => state.watchLaterSlice.watchLater
+  );
   return (
     <Box
       p={2}
@@ -24,7 +26,7 @@ const WatchLater = () => {
       >
         <span style={{ color: "#FC1503" }}>WatchLater</span> videos
       </Typography>
-      <Box display="flex">{<Videos videos={watchLaterVideos} />}</Box>
+      <Box display="flex">{<Videos videos={watchLaterVideosData} />}</Box>
     </Box>
   );
 };

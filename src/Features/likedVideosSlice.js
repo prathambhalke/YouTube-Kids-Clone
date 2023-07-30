@@ -4,8 +4,8 @@ const initialState = {
   likedVideos: [],
 };
 
-export const LikedVideosSlice = createSlice({
-  name: "LikedVideosSlice",
+export const likedVideosSlice = createSlice({
+  name: "likedVideosSlice",
   initialState,
   reducers: {
     addLikedVideos: (state, action) => {
@@ -15,11 +15,11 @@ export const LikedVideosSlice = createSlice({
       let filterdLikedVideos = state.likedVideos.filter(
         (item) => item.id.videoId !== action.payload.id.videoId
       );
-      return { ...state, watchLater: [...filterdLikedVideos] };
+      return { ...state, likedVideos: [...filterdLikedVideos] };
     },
   },
 });
 
-export const { addLikedVideos } = LikedVideosSlice.actions;
+export const { addLikedVideos, removeLikedVideos } = likedVideosSlice.actions;
 
-export default LikedVideosSlice.reducer;
+export default likedVideosSlice.reducer;

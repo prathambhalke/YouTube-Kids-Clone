@@ -1,20 +1,34 @@
-import { Grid, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import React from "react";
+import { Videos } from "./";
+import { useSelector } from "react-redux";
 
 const LikedVideos = () => {
+  const likedVideosData = useSelector(
+    (state) => state.LikedVideosSlice.likedVideos
+  );
+
   return (
-    <Grid
-      container
-      style={{
-        background: "#000",
-        height: "100vh",
-      }}
+    <Box
+      p={2}
+      minHeight="95vh"
+      display="flex"
+      justifyContent="center"
+      flexDirection="column"
     >
-      <Typography variant="h4" fontWeight="bold" mb={2} sx={{ color: "blue" }}>
-        Liked {"  "}
-        <span style={{ color: "#FC1503" }}>videos</span>
+      <Typography
+        variant="h4"
+        fontWeight={900}
+        color="white"
+        mb={3}
+        ml={{ sm: "100px" }}
+        display="flex"
+        justifyContent="center"
+      >
+        <span style={{ color: "#FC1503" }}>Liked</span> videos
       </Typography>
-    </Grid>
+      <Box display="flex">{<Videos videos={likedVideosData} />}</Box>
+    </Box>
   );
 };
 

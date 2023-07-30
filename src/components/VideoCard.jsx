@@ -16,14 +16,34 @@ import {
   demoChannelUrl,
   demoChannelTitle,
 } from "../utils/constants";
-import { RemoveFromQueue, ThumbUp, WatchLater } from "@mui/icons-material";
+import {
+  RemoveFromQueue,
+  ThumbDown,
+  ThumbUp,
+  WatchLater,
+} from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
-import { addWatchLaterVideos, removeWatchLaterVideos } from "../Features/watchLaterSlice";
+import {
+  addWatchLaterVideos,
+  removeWatchLaterVideos,
+} from "../Features/watchLaterSlice";
+import {
+  addLikedVideos,
+  removeLikedVideos,
+} from "../Features/likedVideosSlice";
 
 const VideoCard = ({ video }) => {
-  const watchLaterVideosData = useSelector((state) => state.reducer.watchLater);
+  const watchLaterVideosData = useSelector(
+    (state) => state.watchLaterSlice.watchLater
+  );
+  const likedVideosData = useSelector(
+    (state) => state.LikedVideosSlice.likedVideos
+  );
+
   const dispatch = useDispatch();
-  console.log("videoCard", watchLaterVideosData);
+  console.log("likedVideosData", likedVideosData);
+  console.log("watchLaterVideosData", watchLaterVideosData);
+
   const {
     id: { videoId },
     snippet,
@@ -67,12 +87,21 @@ const VideoCard = ({ video }) => {
           </Typography>
         </Link>
         <div style={{ display: "flex" }}>
-          <Tooltip title="like video">
-            <IconButton>
-              <ThumbUp style={{ color: "red" }} />
-            </IconButton>
-          </Tooltip>
-          {watchLaterVideosData.includes(video) ? (
+          {likedVideosData && likedVideosData.includes(video) ? (
+            <Tooltip title="Dislike video">
+              <IconButton onClick={() => dispatch(removeLikedVideos(video))}>
+                <ThumbDown />
+              </IconButton>
+            </Tooltip>
+          ) : (
+            <Tooltip title="like video">
+              <IconButton onClick={() => dispatch(addLikedVideos(video))}>
+                <ThumbUp style={{ color: "red" }} />
+              </IconButton>
+            </Tooltip>
+          )}
+
+          {watchLaterVideosData && watchLaterVideosData.includes(video) ? (
             <Tooltip title="Remove from watch later">
               <IconButton
                 onClick={() => {
