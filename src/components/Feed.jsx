@@ -87,11 +87,7 @@ const Feed = () => {
             </ListItemIcon>
             <ListItemText primary="Most Viewed" />
           </ListItem>
-          <ListItem
-            button
-            selected={selectedCategory === "History"}
-            onClick={() => navigate("/historypage")}
-          >
+          <ListItem button onClick={() => navigate("/WatchHistoryPage")}>
             <ListItemIcon>
               <HistoryOutlined />
             </ListItemIcon>

@@ -31,6 +31,7 @@ import {
   addLikedVideos,
   removeLikedVideos,
 } from "../Features/likedVideosSlice";
+import { addTowatchHistory } from "../Features/watchHistorySlice";
 
 const VideoCard = ({ video }) => {
   const watchLaterVideosData = useSelector(
@@ -56,6 +57,7 @@ const VideoCard = ({ video }) => {
         boxShadow: "none",
         borderRadius: 0,
       }}
+      onClick={() => dispatch(addTowatchHistory(video))}
     >
       <Link to={videoId ? `/video/${videoId}` : `/video/cV2gBU6hKfY`}>
         <CardMedia
