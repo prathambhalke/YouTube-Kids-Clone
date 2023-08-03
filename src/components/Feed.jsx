@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import {
   Box,
   List,
@@ -25,13 +25,24 @@ const Feed = () => {
   const [videos, setVideos] = useState(null);
 
   const navigate = useNavigate();
-  useEffect(() => {
-    setVideos(null);
+  const cachedVideos = useMemo(() => {
+    return { [selectedCategory]: videos };
+  }, [selectedCategory, videos]);
 
-    fetchFromAPI(`search?part=snippet&q=${selectedCategory}`).then((data) =>
-      setVideos(data.items)
-    );
-  }, [selectedCategory]);
+  useEffect(() => {
+    // Check if videos are already cached for the selected category
+    const cached = cachedVideos[selectedCategory];
+
+    if (!cached) {
+      // If not cached, fetch videos for the selected category
+      fetchFromAPI(`search?part=snippet&q=${selectedCategory}`).then((data) =>
+        setVideos(data.items)
+      );
+    } else {
+      // If cached, set videos from the cache
+      setVideos(cached);
+    }
+  }, [selectedCategory, cachedVideos]);
 
   return (
     <Stack
