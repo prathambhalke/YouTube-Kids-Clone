@@ -30,18 +30,9 @@ const Feed = () => {
   }, [selectedCategory, videos]);
 
   useEffect(() => {
-    // Check if videos are already cached for the selected category
-    const cached = cachedVideos[selectedCategory];
-
-    if (!cached) {
-      // If not cached, fetch videos for the selected category
-      fetchFromAPI(`search?part=snippet&q=${selectedCategory}`).then((data) =>
-        setVideos(data.items)
-      );
-    } else {
-      // If cached, set videos from the cache
-      setVideos(cached);
-    }
+    fetchFromAPI(`search?part=snippet&q=${selectedCategory}`).then((data) =>
+      setVideos(data.items)
+    );
   }, [selectedCategory, cachedVideos]);
 
   return (
