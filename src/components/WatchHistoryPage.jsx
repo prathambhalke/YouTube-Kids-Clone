@@ -8,7 +8,7 @@ const WatchHistoryPage = () => {
     (state) => state.watchHistorySlice.watchHistoryVideos
   );
   const dispatch = useDispatch();
-  console.log(watchHistoryData);
+  // console.log(watchHistoryData);
   return (
     <Box
       p={2}

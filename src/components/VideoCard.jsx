@@ -42,8 +42,8 @@ const VideoCard = ({ video }) => {
   );
 
   const dispatch = useDispatch();
-  console.log("likedVideosData", likedVideosData);
-  console.log("watchLaterVideosData", watchLaterVideosData);
+  // console.log("likedVideosData", likedVideosData);
+  // console.log("watchLaterVideosData", watchLaterVideosData);
 
   const {
     id: { videoId },
